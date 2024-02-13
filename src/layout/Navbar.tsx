@@ -10,7 +10,8 @@ const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: sticky;
+    top: 0;
     padding: 0 20px;
 `
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import InputWithLabel from '../components/InputWithLabel';
 import Page from '../components/Page';
@@ -29,16 +30,24 @@ const SubmitButton = styled.button`
 `
 
 function BusinessIdea() {
+    const navigate = useNavigate();
+
+    const getResult = () => {
+        navigate('/idea/result', {
+            state: { result: 'test' }
+        })
+    }
+
     return (
         <Page>
-        <InputContainer>
-            <InputWithLabel label='사업 분야' onChange={(e)=>{console.log(e)}} isRequired size='sm'/>
-            <InputWithLabel label='사업 참여 인원 구성' onChange={(e)=>{console.log(e)}} isRequired/>
-            <InputWithLabel label='사업 배경, 사업 목표' onChange={(e)=>{console.log(e)}} isRequired/>
-            <InputWithLabel label='기술성' onChange={(e)=>{console.log(e)}} isRequired/>
-            <InputWithLabel label='기타 사항' onChange={(e)=>{console.log(e)}} />
-            <SubmitButton onClick={()=>{console.log('submit')}}>제출</SubmitButton>
-        </InputContainer>
+            <InputContainer>
+                <InputWithLabel label='사업 분야' onChange={(e) => { console.log(e) }} isRequired size='sm' />
+                <InputWithLabel label='사업 참여 인원 구성' onChange={(e) => { console.log(e) }} isRequired />
+                <InputWithLabel label='사업 배경, 사업 목표' onChange={(e) => { console.log(e) }} isRequired />
+                <InputWithLabel label='기술성' onChange={(e) => { console.log(e) }} isRequired />
+                <InputWithLabel label='기타 사항' onChange={(e) => { console.log(e) }} />
+                <SubmitButton onClick={getResult}>제출</SubmitButton>
+            </InputContainer>
         </Page>
     );
 }

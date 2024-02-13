@@ -19,6 +19,7 @@ const CustomInput = styled.textarea<{size:'sm'|'lg'}>`
     width: 100%;
     outline: none;
     resize: none;
+    box-sizing: border-box;
 `
 
 const Label = styled.p`

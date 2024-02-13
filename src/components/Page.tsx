@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 const Paper = styled.div`
     width: 100vw;
-    height: calc(100vh - 55px);
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px;
 `
 
 
