@@ -13,6 +13,7 @@ const Container = styled.div`
     position: sticky;
     top: 0;
     padding: 0 20px;
+    z-index: 20;
 `
 
 const Title = styled.h2`

@@ -31,13 +31,13 @@ const ImageLabel = styled.p`
 `
 
 const ArticleContainer = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 `
 
 const ArticleWrapper = styled.div`
-    width: 550px;
     height: 300px;
     position: relative;
 `

@@ -10,6 +10,7 @@ import Stance from './Results/Stance';
 
 const Container = styled.div`
     width: 55%;
+    min-width: 1200px;
     height: 90%;
     margin: 0 auto;
     flex-direction: column;
