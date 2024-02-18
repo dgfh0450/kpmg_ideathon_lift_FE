@@ -7,6 +7,7 @@ import Navbar from './layout/Navbar';
 import BusinessIdea from './pages/BusinessIdea';
 import Result from './pages/Result';
 import GlobalStyle from './layout/GlobalStyle';
+import Example from './pages/Example';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/idea/result' element={<Result />} />
           <Route path='/idea' element={<BusinessIdea />} />
+          <Route path='/example/:num' element={<Example/>}/>
         </Routes>
       </div>
     </div>

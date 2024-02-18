@@ -33,11 +33,11 @@ const Required = styled.span`
 `
 
 
-function InputWithLabel({label, isRequired=false, size='lg'}:InputWithLabelProps) {
+function InputWithLabel({label, isRequired=false, size='lg', onChange}:InputWithLabelProps) {
     return (
         <InputContainer>
             <Label>{label} {isRequired && <Required>*</Required>}</Label>
-            <CustomInput size={size}></CustomInput>
+            <CustomInput spellCheck={false} onChange={(e)=>{onChange(e.target.value)}} size={size}></CustomInput>
         </InputContainer>
     );
 }

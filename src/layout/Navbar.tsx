@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { example1, example2, example3 } from './examples';
 
 const Container = styled.div`
     width: 100vw;
@@ -12,17 +13,19 @@ const Container = styled.div`
     justify-content: center;
     position: sticky;
     top: 0;
-    padding: 0 20px;
-    z-index: 20;
+    padding: 0 20px;xw
+    z-index: 200;
 `
 
-const Title = styled.h2`
+const Title = styled(Link)`
     color: #FFFFFF;
     font-size: 32px;
     line-height: 55px;
     position: absolute;
     left: 75px;
-`
+    text-decoration: none;
+    font-weight: 900;
+    `
 
 const NavWrapper = styled(NavLink)`
     width: 240px;
@@ -37,22 +40,23 @@ const NavWrapper = styled(NavLink)`
 `
 
 function Navbar() {
+
     return (
         <Container>
-            <Title>
+            <Title to='/'>
                 LIFT
             </Title>
-            <NavWrapper style={({ isActive }:{isActive:boolean}) => ({ textDecoration: isActive ? '' : 'none' })} to='/idea'>
-                <p>Buiness Idea</p>
+            <NavWrapper style={({ isActive }: { isActive: boolean }) => ({ textDecoration: isActive ? '' : 'none' })} to='/idea'>
+                <p>Business Idea</p>
             </NavWrapper>
-            <NavWrapper style={({ isActive }:{isActive:boolean}) => ({ textDecoration: isActive ? '' : 'none' })} to='/1'>
-                <p>Menu 2</p>
+            <NavWrapper style={({ isActive }: { isActive: boolean }) => ({ textDecoration: isActive ? '' : 'none' })} to='/example/1' state={example1}>
+                <p>Example 1</p>
             </NavWrapper>
-            <NavWrapper style={({ isActive }:{isActive:boolean}) => ({ textDecoration: isActive ? '' : 'none' })} to='/2'>
-                <p>Menu 3</p>
+            <NavWrapper style={({ isActive }: { isActive: boolean }) => ({ textDecoration: isActive ? '' : 'none' })} to='/example/2' state={example2}>
+                <p>Example 2</p>
             </NavWrapper>
-            <NavWrapper style={({ isActive }:{isActive:boolean}) => ({ textDecoration: isActive ? '' : 'none' })} to='/3'>
-                <p>Menu 4</p>
+            <NavWrapper style={({ isActive }: { isActive: boolean }) => ({ textDecoration: isActive ? '' : 'none' })} to='/example/3' state={example3}>
+                <p>Example 3</p>
             </NavWrapper>
         </Container>
     );

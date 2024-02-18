@@ -29,15 +29,15 @@ const Article = styled.div`
     align-items: center;
     font-size: 14px;
 `
-function SWOT(props: any) {
-    const location = useLocation();
+function ExSWOT() {
+    const state = useLocation().state;
 
     return (
         <div>
             <Container>
                 <Title>Strengths</Title>
                 <Article>
-                    {location.state.swot.s.split('\n').map((line: string) => (
+                    {state.swot.s.split('\n').map((line: string) => (
                         <React.Fragment>
                             {line}
                             <br />
@@ -49,41 +49,47 @@ function SWOT(props: any) {
             <Container>
                 <Title>Weaknesses</Title>
                 <Article>
-                    {location.state.swot.w.split('\n').map((line: string) => (
-                        <React.Fragment>
-                            {line}
-                            <br />
-                            <br />
-                        </React.Fragment>
-                    ))}
+                    {
+                        state.swot.w.split('\n').map((line: string) => (
+                            <React.Fragment>
+                                {line}
+                                <br />
+                                <br />
+                            </React.Fragment>
+                        ))
+                    }
                 </Article>
             </Container>
             <Container>
                 <Title>Opportunities</Title>
                 <Article>
-                    {location.state.swot.o.split('\n').map((line: string) => (
-                        <React.Fragment>
-                            {line}
-                            <br />
-                            <br />
-                        </React.Fragment>
-                    ))}
+                    {
+                        state.swot.o.split('\n').map((line: string) => (
+                            <React.Fragment>
+                                {line}
+                                <br />
+                                <br />
+                            </React.Fragment>
+                        ))
+                    }
                 </Article>
             </Container>
             <Container>
                 <Title>Threats</Title>
                 <Article>
-                    {location.state.swot.t.split('\n').map((line: string) => (
-                        <React.Fragment>
-                            {line}
-                            <br />
-                            <br />
-                        </React.Fragment>
-                    ))}
+                    {
+                        state.swot.t.split('\n').map((line: string) => (
+                            <React.Fragment>
+                                {line}
+                                <br />
+                                <br />
+                            </React.Fragment>
+                        ))
+                    }
                 </Article>
             </Container>
         </div>
     );
 }
 
-export default SWOT;
+export default ExSWOT;

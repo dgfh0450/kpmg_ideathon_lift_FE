@@ -54,18 +54,13 @@ const Article = styled.p`
     margin: 0;
 `
 
-interface INews {
-    title: string;
-    article: string;
-}
-
-function Market() {
-    const location = useLocation();
+function ExMarket() {
+    const state = useLocation().state;
 
     return (
         <div style={{ height: '100%' }}>
             <NewsGrid>
-                {location.state?.market.news.map((data: any, index: number) =>
+                {state.market.news.map((data: any, index: number) =>
                     <NewsContainer>
                         <TitleWrapper><Title>{data.title}</Title></TitleWrapper>
                         <ArticleWrapper><Article>{data.article}</Article></ArticleWrapper>
@@ -75,7 +70,7 @@ function Market() {
             <KeyWordContainer>
                 <KeyWordWrapper>
                     <KeyWordArticle>
-                        {location.state.market.summary.split('\n').map((line: string) => (
+                        {state.market.summary.split('\n').map((line: string) => (
                             <React.Fragment>
                                 {line}
                                 <br />
@@ -84,11 +79,11 @@ function Market() {
                     </KeyWordArticle>
                 </KeyWordWrapper>
                 <WordContainer>
-                    <ReactWordcloud words={location.state.market.keyword as Word[]} options={{ fontSizes:[24,60]}} />
+                    <ReactWordcloud words={state.market.keyword as Word[]} options={{ fontSizes:[24,60]}} />
                 </WordContainer>
             </KeyWordContainer>
         </div>
     );
 }
 
-export default Market;
+export default ExMarket;

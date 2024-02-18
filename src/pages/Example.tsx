@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Page from '../components/Page';
-import api from '../api';
 import styled from 'styled-components';
-import Market from './Results/Market';
-import Competitor from './Results/Competitor';
-import SWOT from './Results/SWOT';
-import Stance from './Results/Stance';
+import ExMarket from './Examples/ExMarket';
+import ExCompetitor from './Examples/ExCompetitor';
+import ExSWOT from './Examples/ExSWOT';
+import ExStance from './Examples/ExStance';
+import { TResultMenu } from './Result';
 
 const Container = styled.div`
     width: 55%;
@@ -46,11 +46,22 @@ const ArticleContainer = styled.div`
     min-height: 1000px;
 `
 
-export type TResultMenu = 'Market Analysis' | 'Competitor Analysis' | 'SWOT' | 'Stance'
-
-function Result() {
-    const location = useLocation();
+function Example() {
+    const navigate = useNavigate();
+    const state = useLocation().state;
+    const params = useParams().num;
     const [menu, setMenu] = useState<TResultMenu>('Market Analysis');
+
+    useEffect(()=>{
+      if(params === null) {
+        navigate('/');
+      }
+    },[state])
+
+    useEffect(()=>{
+        setMenu('Market Analysis');
+    },[params])
+
 
     return (
         <Page>
@@ -64,10 +75,10 @@ function Result() {
                 <ArticleContainer>
                 {
                     {
-                        'Market Analysis':<Market/>,
-                        'Competitor Analysis': <Competitor/>,
-                        'SWOT':<SWOT/>,
-                        'Stance':<Stance/>
+                        'Market Analysis':<ExMarket/>,
+                        'Competitor Analysis': <ExCompetitor/>,
+                        'SWOT':<ExSWOT/>,
+                        'Stance':<ExStance/>
                     }[menu]
                 }
                 </ArticleContainer>
@@ -76,4 +87,4 @@ function Result() {
     );
 }
 
-export default Result;
+export default Example;

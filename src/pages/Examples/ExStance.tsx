@@ -48,7 +48,7 @@ const Text = styled.p`
 `
 
 
-function Stance(props: any) {
+function ExStance() {
     const location = useLocation();
 
     return (
@@ -114,4 +114,4 @@ function Stance(props: any) {
         </Container>
     );
 }
-export default Stance;
+export default ExStance;

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import MyChart from '../../components/Chart.jsx';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { FindMax } from '../../algorithm/FindMax';
+import * as d3 from 'd3';
+import { ICompetitor } from '../Results/Competitor.js';
+
 
 const CompetitorContainer = styled.div`
 
@@ -42,20 +45,16 @@ const Button = styled.button`
     background: none;
 `
 
-export interface ICompetitor {
-    name: string;
-    article: string;
-    data: any;
-    [index: string]: any;
-}
 
-function Competitor() {
-    const location = useLocation();
+function ExCompetitor(props: any) {
+    const state = useLocation().state;
+
     return (
         <div>
             <CompetitorContainer>
                 {
-                    location.state.competitor.map((data: ICompetitor, index: number) => 
+                    state.competitor.map((data: ICompetitor, index: number) => {
+                        return(
                             <CompetitorContainer>
                                 <CompetitorName>
                                     {data.name}사
@@ -67,6 +66,7 @@ function Competitor() {
                                                 <React.Fragment key={index}>
                                                     {line}
                                                     <br />
+                                                    <br/>
                                                 </React.Fragment>
                                             ))}
                                         </Article>
@@ -76,23 +76,26 @@ function Competitor() {
                                     </Image>
                                 </ArticleContainer>
                             </CompetitorContainer>
-                        
-                    )
+                        )
+                    })
                 }
             </CompetitorContainer>
         </div>
     );
 }
 
-export default Competitor;
+export default ExCompetitor;
 
 function PlotContainer({ data, name }: { data: any, name: string }) {
+    const location = useLocation();
+    const params = useParams();
+    console.log(params);
     const [plotState, setPlotState] = useState<1 | 2>(1);
 
     let data1: any[] = [];
     let data2: any[] = [];
-    const subgroup1 = ['자본총계', '부채총계', '자산총계'];
-    const subgroup2 = ['매출액', '영업이익'];
+    const subgroup1 = ['자본총계', '자산총계'];
+    const subgroup2 = ['영업이익', '매출액'];
     let max1 = 0;
     let max2 = 0;
     for (let i = 2020; i < 2023; i++) {
@@ -104,20 +107,20 @@ function PlotContainer({ data, name }: { data: any, name: string }) {
                 max2 = data[i][j + 2];
             }
         }
-        data1.push({ group: `${i}`, '자본총계': data[i][0], '부채총계': data[i][1]-data[i][0], '자산총계': data[i][1] });
-        data2.push({ group: `${i}`, '영업이익': data[i][3], '매출액': data[i][2] });
+        data1.push({ group: `${i}`, '자본총계': data[i][0], '자산총계': data[i][1] });
+        data2.push({ group: `${i}`, '영업이익': data[i][2], '매출액': data[i][3] });
     }
 
     return (
         <>
             {plotState === 1 && (
-                <MyChart containerId={`plot-${name}-1`} data={data1} subgroups={subgroup1} Max={FindMax(max1)} />
+                <MyChart containerId={`example-plot-${name}-1`} data={data1} subgroups={subgroup1} Max={FindMax(max1)} />
             )}
             {plotState === 2 && (
-                <MyChart containerId={`plot-${name}-2`} data={data2} subgroups={subgroup2} Max={FindMax(max2)} />
+                <MyChart containerId={`example-plot-${name}-2`} data={data2} subgroups={subgroup2} Max={FindMax(max2)} />
             )}
             <ButtonContainer>
-                <Button onClick={() => setPlotState(1)}>자본총계 / 부채총계 / 자산총계</Button>
+                <Button onClick={() => setPlotState(1)}>자본총계 / 자산총계</Button>
                 <Button onClick={() => setPlotState(2)}>영업이익 / 매출액</Button>
             </ButtonContainer>
         </>
