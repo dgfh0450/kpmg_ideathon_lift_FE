@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# ideathon
+using LLM models for efficient working system
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 일정 <br />
+설명회 내용에 따라 조정 예정, 대략적인 가이드라인 <br />
+1/29 유튜브 라이브 온라인 설명회 16:00<br />
+1/31 2차 결선 역할 배분 <br />
+2/7 팀 소개 영상 제출 <br />
+2/8 2차 결선 계획서 내용 최초 구현 <br />
+2/8 최초 구현 내용 점검 (대면 첫번째 회의) <br />
+2/13 수정 사항 조정 및 추가 구현 사항 논의 (대면 두번째 회의, 14 or 15) <br />
+2/14부터 2/17 마무리 작업 <br />
+2/18 결선 제출 전 마지막 대면 회의 및 제출, 발표 조정 <br />
+2/20 결선 팀 소개 <br />
+2/21 결선 발표 오후 2시 30분 <br />
+2/21 저녁 뒷풀이?!! 수상하자 <br />
+2/23 오전 9시 시상식 <br />
 
-## Available Scripts
+### Router
+- Business Idea (사용자 입력) <br/>
+- Examples <br/>
 
-In the project directory, you can run:
+### Logic Result
+- Market Analysis - Word Cloud를 활용한 키워드 시각화 text, value(빈도 수)
+- Competitor Analysis - d3의 BarPlot을 활용한 그래프 시각호ㅓㅏ
+- SWOT
+- Stance
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Data Visualization
+- Word Cloud : https://react-wordcloud.netlify.app/ <br/>
+- d3 Bar Plot : https://d3-graph-gallery.com/index.html <br/>
